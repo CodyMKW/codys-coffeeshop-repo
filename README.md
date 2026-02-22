@@ -1,75 +1,94 @@
-# Wii U Mod Store: Repository Template
+# CupStore Repo Template
 
-This is the official template for hosting mods on the **Wii U Mod Store** app.
+This is the official template for hosting mods on [CupStore](https://github.com/timkicker/cupstore) — a mod manager for the Wii U.
 
-## How to use
+## Quick Start
 
 1. Fork this repository
-2. Edit `repo.json` with your repo name and author
-3. Add your games under `games/[game-id]/game.json`
-4. Host your mod ZIPs anywhere (GitHub Releases, direct links, etc.)
-5. Add your raw `repo.json` URL to the Mod Store app
+2. Edit `repo.json` (name, author)
+3. Add your game folders under `games/`
+4. Add your mod ZIPs as GitHub Release assets
+5. Share your `repo.json` URL with users
 
-## Repository URL format
+## Structure
 
-After forking, your repo index URL will look like:
 ```
-https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/repo.json
+repo.json                        ← repo index
+games/
+  mario-kart-8/
+    game.json                    ← game + mod definitions
+  your-game/
+    game.json
 ```
 
-Add this to `sd:/wiiu/apps/modstore/config.json` on your Wii U SD card:
+## repo.json
+
 ```json
 {
-  "repos": [
-    "https://raw.githubusercontent.com/YOUR-USERNAME/YOUR-REPO/main/repo.json"
+  "formatVersion": 1,
+  "name": "My Mod Repo",
+  "description": "...",
+  "author": "your-name",
+  "version": "1",
+  "games": [
+    { "path": "games/mario-kart-8/game.json" }
   ]
 }
 ```
 
-## Folder structure
+## game.json
 
+```json
+{
+  "name": "Mario Kart 8",
+  "icon": "https://...",
+  "titleIds": [
+    "000500001010EB00",
+    "000500001010EC00",
+    "000500001010ED00"
+  ],
+  "mods": [ ... ]
+}
 ```
-repo/
-├── repo.json               ← Repo index (required)
-└── games/
-    └── [game-id]/
-        ├── game.json       ← Game info + mod list
-        └── assets/
-            └── cover.png   ← Game cover image (optional)
-```
 
-## Mod types
-
-- `mod`: A single standalone mod
-- `modpack`: A bundle of multiple mods installed together
-
-## game.json fields
+## Mod Fields
 
 | Field | Required | Description |
 |-------|----------|-------------|
-| `name` | yes | Display name of the game |
-| `cover` | no | Relative path to cover image |
-| `title_ids` | yes | Array of Wii U Title IDs (all regions) |
-| `mods` | yes | Array of mod objects |
+| `id` | ✅ | Unique ID, only `a-z 0-9 - _` |
+| `name` | ✅ | Display name |
+| `author` | ✅ | Author name |
+| `version` | ✅ | Version string e.g. `1.0.0` |
+| `description` | ✅ | Short description |
+| `download` | ✅ | Direct URL to `.zip` file |
+| `type` | ✅ | `"mod"` or `"modpack"` |
+| `thumbnail` | ☑️ | Preview image URL (400x225) |
+| `screenshots` | ☑️ | List of screenshot URLs (800x450) |
+| `includes` | ☑️ | For modpacks: list of mod IDs |
+| `releaseDate` | ☑️ | e.g. `"2024-03-15"` |
+| `license` | ☑️ | e.g. `"CC BY-NC"` |
+| `tags` | ☑️ | e.g. `["skin", "music", "course"]` |
+| `fileSize` | ☑️ | ZIP size in bytes |
+| `requirements` | ☑️ | List of required mods/patches |
+| `changelog` | ☑️ | Free text changelog |
 
-## Mod fields
+## Validation
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `id` | yes | Unique identifier (no spaces) |
-| `name` | yes | Display name |
-| `type` | yes | `mod` or `modpack` |
-| `version` | yes | Semantic version string |
-| `author` | yes | Author name |
-| `description` | yes | Description text |
-| `thumbnail` | no | URL to thumbnail image (400x225 recommended) |
-| `screenshots` | no | Array of screenshot URLs |
-| `download` | yes | Direct URL to ZIP file |
-| `modpack_path` | yes | SDCafiine path (`content/` or `aoc/`) |
-| `includes` | modpack only | Array of mod IDs included in bundle |
+```bash
+python3 validate.py              # check structure
+python3 validate.py --check-urls # also verify download URLs
+```
 
-## Notes
+Validation runs automatically on every PR via GitHub Actions.
 
-- Title IDs can be found at [wiiubrew.org/wiki/Title_database](https://wiiubrew.org/wiki/Title_database)
-- Mod ZIPs must match the SDCafiine folder structure (`content/` at root of ZIP)
-- The app does **not** verify mod safety! only distribute mods you trust
+## Mod ZIP Structure
+
+Your ZIP must extract to a folder matching the SDCafiine layout:
+
+```
+your-mod.zip
+└── content/
+    └── ...game files...
+```
+
+CupStore installs to: `SD:/wiiu/sdcafiine/<titleId>/<modId>/`

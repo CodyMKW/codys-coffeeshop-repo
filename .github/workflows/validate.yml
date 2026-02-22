@@ -1,0 +1,20 @@
+name: Validate Repo
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main, dev]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate repo structure
+        run: python3 validate.py
+
+      - name: Validate repo structure + check URLs
+        run: python3 validate.py --check-urls
+        continue-on-error: true  # URL checks are best-effort
