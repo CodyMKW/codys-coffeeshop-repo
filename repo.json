@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
-  "name": "CupStore Template Repo",
-  "description": "Official template repository for CupStore. Fork this to host your own mods.",
-  "author": "your-name",
+  "name": "Cody's CoffeeShop Repo",
+  "description": "Official repository for Cody's CoffeeShop Repo.",
+  "author": "CodyMKW",
   "version": "1",
   "games": [
     {
