@@ -8,24 +8,24 @@
   ],
   "mods": [
     {
-      "id": "mario-kart-galaxy-mod",
-      "name": "★Mario Kart Galaxy★",
-      "type": "modpack",
+      "id": "anime-positions-mod",
+      "name": "Anime Positions",
+      "type": "mod",
       "version": "1.0.0",
-      "author": "Gabox",
-      "description": "This modpack brings 51 tracks has 4 cups with only Nitro tracks, 4 cups with only Retro tracks and another 4 with both Nitro and Retro tracks",
-      "thumbnail": "https://images.gamebanana.com/img/ss/mods/6999e43476332.jpg",
+      "author": "CodyMKW",
+      "description": "This modp just adds anime girls as position icons!",
+      "thumbnail": "https://file.garden/Z8ftP3Tgmgo8vRii/69704fe214bf4.jpg",
       "screenshots": [
-        "https://images.gamebanana.com/img/ss/mods/699cc6b2e9902.jpg",
-        "https://images.gamebanana.com/img/ss/mods/699cc6b30fa87.jpg"
+        "https://file.garden/Z8ftP3Tgmgo8vRii/69a9f9f066dca.jpg",
+        "https://file.garden/Z8ftP3Tgmgo8vRii/69705120870d8.jpg"
       ],
-      "download": "https://gamebanana.com/dl/1632936",
-      "releaseDate": "2026-02-23",
+      "download": "https://file.garden/Z8ftP3Tgmgo8vRii/anime%20positions.zip",
+      "releaseDate": "2026-03-10",
       "license": "CC BY-NC",
-      "tags": ["Mario Kart Galaxy", "modpack"],
+      "tags": ["Anime Positions", "anime", "mod"],
       "fileSize": 204800,
       "requirements": [],
-      "changelog": "1.0.0 - Initial release"
+      "changelog": "1.0.0"
     }
   ]
 }
