@@ -1,0 +1,43 @@
+{
+  "name": "Splatoon",
+  "icon": "https://cdn2.steamgriddb.com/icon/331d52c912e4221b962fafaed868e6a4/32/192x192.png",
+  "titleIds": [
+    "0005000010162B00",
+    "0005000010176900",
+    "0005000010176A00"
+  ],
+  "mods": [
+    {
+      "id": "the-splatlands-project",
+      "name": "The Splatlands Project",
+      "type": "mod",
+      "version": "4.0.0",
+      "author": "Claygolor",
+      "description": "This mod replaces Inkopolis plaza with Splatsville city!",
+      "thumbnail": "https://images.gamebanana.com/img/ss/mods/68c0978b0ba59.jpg",
+      "screenshots": [
+        "https://images.gamebanana.com/img/ss/mods/6938a338f142a.jpg",
+        "https://images.gamebanana.com/img/ss/mods/68c09765ebc54.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a3983ddff.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a39708f74.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a396589eb.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a39770c0c.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a397b816b.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a3993145c.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a399102e2.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a398b7faf.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a398320c8.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a39a42664.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a399f1bc7.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a39a13739.jpg",
+        "https://images.gamebanana.com/img/ss/mods/6938a39a33152.jpg"
+      ],
+      "download": "https://gamebanana.com/dl/1577753",
+      "releaseDate": "2025-12-09",
+      "license": "CC BY-NC",
+      "tags": ["The Splatlands Project", "splatoon", "Splatsville", "mod"],
+      "requirements": [],
+      "changelog": "4.0.0"
+    }
+  ]
+}
